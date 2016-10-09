@@ -1,3 +1,4 @@
+# Cypher by Mr. Ari Kurniawan Saputra
 
 //=============== CYPHER DELETE NODE AND PROPERTIES =============
 MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n,r 
