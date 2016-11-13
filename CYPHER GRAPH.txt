@@ -1,0 +1,31 @@
+# Cypher by Mr. Ari Kurniawan Saputra
+
+//=============== CYPHER DELETE NODE AND PROPERTIES =============
+MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n,r 
+
+
+//================ CREATE NODE =====================
+CREATE (n:Orang {nama:"Aria",umur:24}) RETURN n
+
+
+//=============== UPDATE PROPERTIES =============
+MATCH (n:Orang {nama:"Ari"}) SET n.umur=24
+
+//=============== DELETE PROPERTIES =============
+MATCH (n:Orang {nama:"Ari"}) REMOVE n.umur
+
+//================ DELETE NODES ============
+MATCH (n:Orangs {nama:"Diana"}) DELETE n
+
+//=============== MENAMPILKAN SEMUA ==========
+MATCH (n) RETURN n
+
+//================ CREATE RELATIONSHIPS =====
+MATCH (a:Orangs {nama:"Aria"}),(b:Orangs {nama:"Tiara"}) MERGE (a)-[r:MENIKAH]->(b)
+
+//=============== MENAMPILKAN 1 NODE + LABELS + PROPERTIES ========================
+MATCH (a:Orangs) WHERE a.nama='Aria' RETURN a
+
+//============== MENAMPILKAN NODE YANG TERHUBUNG DENGAN RELASI LAINNYA ============
+MATCH (a:Orangs {nama:'Aria'})-[TEMAN]->(b:Orangs) RETURN a,b
+
